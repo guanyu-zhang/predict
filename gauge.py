@@ -16,6 +16,8 @@ num_of_day = (df['date']).unique()
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
+server = app.server
+
 app.layout = html.Div(
     style = dict(backgroundImage='url("assets/logo_04.jpg")',backgroundPosition='bottom left',backgroundRepeat='no-repeat',position='absolute',zIndex='auto',backgroundSize='80px'),
     children=[
@@ -122,5 +124,6 @@ def update_date(class_label,period_value,date_value):
     return g1_value,g1_title,g2_value,g2_title,g3_value,g3_title,g4_value,g4_title
     
 
-app.run_server(debug=True,port=8502)
+if __name__ == '__main__':
+    app.run_server(debug=True)
 
